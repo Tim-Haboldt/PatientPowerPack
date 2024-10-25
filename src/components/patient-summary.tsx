@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -163,8 +164,14 @@ function PatientInformationShowCase() {
                 <CardHeader className="pb-4">
                     <div className="flex items-center space-x-4">
                         <Avatar className="w-20 h-20">
+                            <Image
+                                src="/anna-profile.jpeg"
+                                alt="profile-pic"
+                                width="80"
+                                height="80"
+                            />
                             <AvatarImage
-                                src="/placeholder.svg?height=80&width=80"
+                                src="/anna-profile?height=80&width=80"
                                 alt={patient.name}
                             />
                             <AvatarFallback>
