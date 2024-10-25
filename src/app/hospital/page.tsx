@@ -15,6 +15,7 @@ import {
     Clock,
     TrendingUp,
 } from "lucide-react";
+import Link from "next/link";
 
 export default function HospitalLandingPage() {
     return (
@@ -35,9 +36,18 @@ export default function HospitalLandingPage() {
 
                 <main>
                     <section className="mb-16">
-                        <h2 className="text-3xl font-bold text-gray-900 mb-8">
-                            Why Choose Our Platform?
-                        </h2>
+                        <div className="flex flex-row gap-4 items-center  mb-8">
+                            <h2 className="text-3xl font-bold text-gray-900">
+                                Why Choose Our Platform?
+                            </h2>
+                            <Link href="/">
+                                (
+                                <span className="text-blue-700/85">
+                                    For Patients
+                                </span>
+                                )
+                            </Link>
+                        </div>
                         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                             <Card>
                                 <CardHeader>
