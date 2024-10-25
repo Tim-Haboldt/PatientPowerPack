@@ -9,7 +9,7 @@ export default function Navbar() {
                     <div className="flex-shrink-0">
                         <Link href="/">
                             <span className="text-2xl font-bold text-primary">
-                                HeliX
+                                HealX
                             </span>
                         </Link>
                     </div>
