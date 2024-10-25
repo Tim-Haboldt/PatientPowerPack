@@ -57,7 +57,7 @@ function PatientLogin({ setLoggedIn }: { setLoggedIn: (b: boolean) => void }) {
     };
 
     return (
-        <div className="container mx-auto p-4 max-w-md">
+        <div className="container mx-auto p-4 max-w-md bg-inherited h-screen overflow-hidden">
             <Card>
                 <CardHeader>
                     <CardTitle className="text-2xl font-bold">
@@ -159,7 +159,7 @@ function PatientInformationShowCase() {
     };
 
     return (
-        <div className="container mx-auto p-4 max-w-4xl">
+        <div className="container mx-auto p-4 max-w-4xl bg-transparent">
             <Card>
                 <CardHeader className="pb-4">
                     <div className="flex items-center space-x-4">

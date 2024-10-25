@@ -40,7 +40,7 @@ export default function PatientLandingPage() {
                             </h2>
                             <Link href="/hospital">
                                 (
-                                <span className="text-blue-700/85">
+                                <span className="text-blue-600">
                                     For Hospitals
                                 </span>
                                 )

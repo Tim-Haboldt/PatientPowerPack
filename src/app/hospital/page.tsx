@@ -42,7 +42,7 @@ export default function HospitalLandingPage() {
                             </h2>
                             <Link href="/">
                                 (
-                                <span className="text-blue-700/85">
+                                <span className="text-blue-600">
                                     For Patients
                                 </span>
                                 )
