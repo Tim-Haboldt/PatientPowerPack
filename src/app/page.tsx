@@ -210,7 +210,7 @@ export default function PatientLandingPage() {
                             Join thousands of patients who have already
                             empowered their healthcare journey.
                         </p>
-                        <Link href="/dashboard">
+                        <Link href="https://apphackathon100-sandbox.mxapps.io/index.html?profile=Responsive">
                             <Button size="lg" className="text-lg">
                                 Sign Up Now{" "}
                                 <ChevronRight className="ml-2 h-5 w-5" />
