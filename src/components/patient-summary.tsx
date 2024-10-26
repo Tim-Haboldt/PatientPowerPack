@@ -105,219 +105,133 @@ function PatientLogin({ setLoggedIn }: { setLoggedIn: (b: boolean) => void }) {
 }
 
 function PatientInformationShowCase() {
-    // In a real application, this data would come from a backend API
-    const patient = {
-        name: "Anna Humari",
-        age: 32,
-        gender: "Female",
-        roomNumber: "205",
-        bloodType: "B-",
-        admissionDate: "2023-10-18",
-        doctor: "Dr. Michael Chen",
-        bloodReports: [
-            {
-                test: "Hemoglobin",
-                value: "13.2 g/dL",
-                normalRange: "12.0 - 15.5 g/dL",
-            },
-            {
-                test: "White Blood Cells",
-                value: "7.5 x10^9/L",
-                normalRange: "4.5 - 11.0 x10^9/L",
-            },
-            {
-                test: "Platelets",
-                value: "250 x10^9/L",
-                normalRange: "150 - 450 x10^9/L",
-            },
-            {
-                test: "Glucose (Fasting)",
-                value: "92 mg/dL",
-                normalRange: "70 - 100 mg/dL",
-            },
-            {
-                test: "Creatinine",
-                value: "0.9 mg/dL",
-                normalRange: "0.6 - 1.2 mg/dL",
-            },
-        ],
-        recentTreatments: [
-            { date: "2023-10-22", treatment: "Physical Therapy Session" },
-            { date: "2023-10-20", treatment: "MRI Scan" },
-            { date: "2023-10-19", treatment: "Blood Work" },
-        ],
-        upcomingAppointments: [
-            {
-                date: "2023-10-26",
-                time: "11:30 AM",
-                type: "Follow-up Consultation",
-            },
-            { date: "2023-10-28", time: "3:00 PM", type: "Physical Therapy" },
-        ],
-        medicalTeamNotes:
-            "Patient is progressing well. Continue with current treatment plan and monitor blood glucose levels.",
-    };
-
     return (
-        <div className="container mx-auto p-4 max-w-4xl bg-transparent">
-            <Card>
-                <CardHeader className="pb-4">
-                    <div className="flex items-center space-x-4">
-                        <Avatar className="w-20 h-20">
-                            <Image
-                                src="/anna-profile.jpeg"
-                                alt="profile-pic"
-                                width="80"
-                                height="80"
-                            />
-                            <AvatarImage
-                                src="/anna-profile?height=80&width=80"
-                                alt={patient.name}
-                            />
-                            <AvatarFallback>
-                                <User className="w-10 h-10" />
-                            </AvatarFallback>
-                        </Avatar>
-                        <div>
-                            <CardTitle className="text-2xl">
-                                {patient.name}
-                            </CardTitle>
-                            <CardDescription>
-                                {patient.age} years old • {patient.gender} •
-                                Room {patient.roomNumber}
-                            </CardDescription>
-                            <Badge variant="outline" className="mt-2">
-                                Blood Type: {patient.bloodType}
-                            </Badge>
-                        </div>
+        <div className="max-w-2xl mx-auto p-4">
+            <h1 className="text-3xl font-bold mb-6">Your Medical Summary</h1>
+            <Card className="mb-6">
+                <CardHeader>
+                    <CardTitle>Patient Information</CardTitle>
+                </CardHeader>
+                <CardContent className="flex items-center">
+                    <Image
+                        src="/anna-profile.jpeg"
+                        alt="Anna Kumari"
+                        width={64}
+                        height={64}
+                        className="rounded-full mr-4"
+                    />
+                    <div>
+                        <p>
+                            <strong>Name:</strong> Anna Kumari
+                        </p>
+                        <p>
+                            <strong>Age:</strong> 45 years old
+                        </p>
                     </div>
+                </CardContent>
+            </Card>
+
+            <Card className="mb-6">
+                <CardHeader>
+                    <CardTitle>Main Diagnosis</CardTitle>
+                    <CardDescription>
+                        This section describes the primary condition we're
+                        treating
+                    </CardDescription>
                 </CardHeader>
                 <CardContent>
-                    <div className="grid gap-6 md:grid-cols-2">
-                        <Card>
-                            <CardHeader>
-                                <CardTitle className="text-lg">
-                                    Blood Reports
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <ScrollArea className="h-[250px]">
-                                    <Table>
-                                        <TableHeader>
-                                            <TableRow>
-                                                <TableHead>Test</TableHead>
-                                                <TableHead>Value</TableHead>
-                                                <TableHead>
-                                                    Normal Range
-                                                </TableHead>
-                                            </TableRow>
-                                        </TableHeader>
-                                        <TableBody>
-                                            {patient.bloodReports.map(
-                                                (report, index) => (
-                                                    <TableRow key={index}>
-                                                        <TableCell>
-                                                            {report.test}
-                                                        </TableCell>
-                                                        <TableCell>
-                                                            {report.value}
-                                                        </TableCell>
-                                                        <TableCell>
-                                                            {report.normalRange}
-                                                        </TableCell>
-                                                    </TableRow>
-                                                )
-                                            )}
-                                        </TableBody>
-                                    </Table>
-                                </ScrollArea>
-                            </CardContent>
-                        </Card>
-                        <Card>
-                            <CardHeader>
-                                <CardTitle className="text-lg">
-                                    Recent Treatments
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <ScrollArea className="h-[120px]">
-                                    {patient.recentTreatments.map(
-                                        (treatment, index) => (
-                                            <div
-                                                key={index}
-                                                className="flex justify-between items-center mb-2"
-                                            >
-                                                <span className="text-sm font-medium">
-                                                    {treatment.treatment}
-                                                </span>
-                                                <span className="text-sm text-muted-foreground">
-                                                    {treatment.date}
-                                                </span>
-                                            </div>
-                                        )
-                                    )}
-                                </ScrollArea>
-                            </CardContent>
-                        </Card>
-                        <Card>
-                            <CardHeader>
-                                <CardTitle className="text-lg">
-                                    Upcoming Appointments
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <ScrollArea className="h-[120px]">
-                                    {patient.upcomingAppointments.map(
-                                        (appointment, index) => (
-                                            <div key={index} className="mb-3">
-                                                <div className="flex justify-between items-center">
-                                                    <span className="font-medium">
-                                                        {appointment.type}
-                                                    </span>
-                                                    <Badge variant="secondary">
-                                                        {appointment.date}
-                                                    </Badge>
-                                                </div>
-                                                <span className="text-sm text-muted-foreground">
-                                                    {appointment.time}
-                                                </span>
-                                            </div>
-                                        )
-                                    )}
-                                </ScrollArea>
-                            </CardContent>
-                        </Card>
-                        <Card>
-                            <CardHeader>
-                                <CardTitle className="text-lg">
-                                    Medical Team Notes
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <p className="text-sm">
-                                    {patient.medicalTeamNotes}
-                                </p>
-                            </CardContent>
-                        </Card>
-                    </div>
-                    <Separator className="my-6" />
-                    <div className="flex justify-between items-center">
-                        <div>
-                            <p className="text-sm text-muted-foreground">
-                                Attending Physician
-                            </p>
-                            <p className="font-medium">{patient.doctor}</p>
-                        </div>
-                        <div>
-                            <p className="text-sm text-muted-foreground">
-                                Admission Date
-                            </p>
-                            <p className="font-medium">
-                                {patient.admissionDate}
-                            </p>
-                        </div>
-                        <Button>Contact Medical Team</Button>
-                    </div>
+                    <p>
+                        You have been diagnosed with early-stage breast cancer.
+                        Here's what that means:
+                    </p>
+                    <ul className="list-disc pl-5 space-y-2">
+                        <li>
+                            The cancer is small (about 17mm) and hasn't spread
+                            beyond your breast.
+                        </li>
+                        <li>
+                            It's a type called "ductal invasive carcinoma",
+                            which means it started in the milk ducts.
+                        </li>
+                        <li>
+                            Your cancer is sensitive to hormones (estrogen and
+                            progesterone), which helps guide our treatment plan.
+                        </li>
+                    </ul>
+                </CardContent>
+            </Card>
+
+            <Card className="mb-6">
+                <CardHeader>
+                    <CardTitle>Other Health Concerns</CardTitle>
+                    <CardDescription>
+                        These are additional health issues we're monitoring
+                    </CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <ul className="list-disc pl-5 space-y-2">
+                        <li>
+                            Osteoporosis: A condition that makes bones more
+                            fragile
+                        </li>
+                        <li>
+                            Low Vitamin D levels: Vitamin D is important for
+                            bone health and overall wellbeing
+                        </li>
+                    </ul>
+                </CardContent>
+            </Card>
+
+            <Card className="mb-6">
+                <CardHeader>
+                    <CardTitle>How We Found It</CardTitle>
+                    <CardDescription>
+                        This explains how your condition was discovered and
+                        confirmed
+                    </CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <p>
+                        In May 2024, you had an infrared camera breast
+                        screening. This showed a small area of concern that
+                        couldn't be felt by touch. We then did more tests,
+                        including ultrasound, mammogram, and a biopsy, which
+                        confirmed the diagnosis of early-stage breast cancer.
+                    </p>
+                </CardContent>
+            </Card>
+
+            <Card>
+                <CardHeader>
+                    <CardTitle>Treatment Plan</CardTitle>
+                    <CardDescription>
+                        This is the course of treatment recommended by our
+                        medical team
+                    </CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <ol className="list-decimal pl-5 space-y-2">
+                        <li>
+                            Chemotherapy: This will be given before surgery to
+                            shrink the tumor. It includes two types of
+                            medications given over several months.
+                        </li>
+                        <li>
+                            Surgery: We plan to remove the tumor while
+                            preserving as much of your breast as possible. We'll
+                            also check the lymph nodes under your arm.
+                        </li>
+                        <li>
+                            Radiation Therapy: This treatment uses targeted
+                            radiation to destroy any remaining cancer cells
+                            after surgery.
+                        </li>
+                        <li>
+                            Hormone Therapy: Since your cancer is sensitive to
+                            hormones, you'll take a medication called tamoxifen
+                            to help prevent the cancer from returning.
+                        </li>
+                    </ol>
                 </CardContent>
             </Card>
         </div>
