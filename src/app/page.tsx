@@ -7,11 +7,14 @@ import {
     CardTitle,
 } from "@/components/ui/card";
 import {
+    Book,
     ChevronRight,
     FileText,
+    Key,
     Share2,
     Shield,
     UserCircle,
+    Volume2,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -23,12 +26,12 @@ export default function PatientLandingPage() {
                     <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
                         <span className="block">Your Health, Your Control</span>
                         <span className="block text-blue-600">
-                            Secure Medical Records for Patients
+                            Empowerment through knowledge
                         </span>
                     </h1>
                     <p className="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-                        Take charge of your healthcare journey with our secure,
-                        easy-to-use medical records system.
+                        Take charge of your healthcare journey with our
+                        simplified, easy-to-use medical records system.
                     </p>
                 </header>
 
@@ -50,8 +53,38 @@ export default function PatientLandingPage() {
                             <Card>
                                 <CardHeader>
                                     <CardTitle className="flex items-center">
-                                        <FileText className="mr-2 h-6 w-6 text-blue-500" />
-                                        Complete Health History
+                                        <Book className="mr-2 h-6 w-6 text-blue-500" />
+                                        Empowerment through education
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <p>
+                                        Understand your disease pathway in
+                                        patient-friendly language.
+                                    </p>
+                                </CardContent>
+                            </Card>
+                            <Card>
+                                <CardHeader>
+                                    <CardTitle className="flex items-center">
+                                        <Volume2 className="mr-2 h-6 w-6 text-blue-500" />
+                                        Empowerment through communication
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <p>
+                                        Quickly share the medical information
+                                        you wish to to be shared with healthcare
+                                        providers for better, faster care.
+                                    </p>
+                                </CardContent>
+                            </Card>
+                            <Card>
+                                <CardHeader>
+                                    <CardTitle className="flex items-center">
+                                        <Key className="mr-2 h-6 w-6 text-blue-500" />
+                                        Empowerment through access to medical
+                                        data
                                     </CardTitle>
                                 </CardHeader>
                                 <CardContent>
@@ -59,36 +92,6 @@ export default function PatientLandingPage() {
                                         Access your entire medical history in
                                         one secure location, anytime you need
                                         it.
-                                    </p>
-                                </CardContent>
-                            </Card>
-                            <Card>
-                                <CardHeader>
-                                    <CardTitle className="flex items-center">
-                                        <Share2 className="mr-2 h-6 w-6 text-blue-500" />
-                                        Easy Sharing
-                                    </CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <p>
-                                        Quickly share your medical information
-                                        with healthcare providers for better,
-                                        faster care.
-                                    </p>
-                                </CardContent>
-                            </Card>
-                            <Card>
-                                <CardHeader>
-                                    <CardTitle className="flex items-center">
-                                        <Shield className="mr-2 h-6 w-6 text-blue-500" />
-                                        Privacy Protected
-                                    </CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <p>
-                                        Your data is safeguarded with
-                                        industry-leading security measures,
-                                        ensuring your privacy at all times.
                                     </p>
                                 </CardContent>
                             </Card>
@@ -154,9 +157,10 @@ export default function PatientLandingPage() {
                                 <CardContent>
                                     <p>
                                         Ensure all your healthcare providers
-                                        have access to your complete medical
-                                        history, leading to better-informed
-                                        decisions and coordinated care.
+                                        have access to the medical history you
+                                        wish to share, leading to
+                                        better-informed decisions and
+                                        coordinated care.
                                     </p>
                                 </CardContent>
                             </Card>

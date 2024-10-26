@@ -1,16 +1,20 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar() {
     return (
         <nav className="bg-background">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
-                    <div className="flex-shrink-0">
+                    <div className="flex-shrink-0 flex items-center mt-9">
                         <Link href="/">
-                            <span className="text-2xl font-bold text-primary">
-                                HealX
-                            </span>
+                            <Image
+                                src="/HealX_Logo.svg"
+                                alt="Company-Logo"
+                                width={110}
+                                height={110}
+                            />
                         </Link>
                     </div>
                     <div className="flex items-center space-x-4">
