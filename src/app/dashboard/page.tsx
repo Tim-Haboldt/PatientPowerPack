@@ -20,45 +20,13 @@ import {
     ChevronRight,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function PatientDashboard() {
     const [activeTab, setActiveTab] = useState("overview");
 
     return (
         <div className="flex h-screen bg-gray-100">
-            {/* Sidebar */}
-            <div className="w-64 bg-white shadow-md">
-                <div className="p-4">
-                    <h2 className="text-xl font-bold mb-4">Patient Records</h2>
-                    <nav>
-                        <Button
-                            variant="ghost"
-                            className="w-full justify-start mb-2"
-                        >
-                            <FileText className="mr-2 h-4 w-4" /> Overview
-                        </Button>
-                        <Button
-                            variant="ghost"
-                            className="w-full justify-start mb-2"
-                        >
-                            <Activity className="mr-2 h-4 w-4" /> Diagnostics
-                        </Button>
-                        <Button
-                            variant="ghost"
-                            className="w-full justify-start mb-2"
-                        >
-                            <Pill className="mr-2 h-4 w-4" /> Treatment
-                        </Button>
-                        <Button
-                            variant="ghost"
-                            className="w-full justify-start"
-                        >
-                            <CalendarDays className="mr-2 h-4 w-4" /> Timeline
-                        </Button>
-                    </nav>
-                </div>
-            </div>
-
             {/* Main content */}
             <div className="flex-1 p-8 overflow-auto">
                 <header className="mb-8 flex items-center justify-between">
@@ -93,6 +61,7 @@ export default function PatientDashboard() {
                             Diagnostics
                         </TabsTrigger>
                         <TabsTrigger value="treatment">Treatment</TabsTrigger>
+                        <TabsTrigger value="share-data">Share Data</TabsTrigger>
                     </TabsList>
                     <TabsContent value="overview" className="space-y-4">
                         <Card>
@@ -223,6 +192,39 @@ export default function PatientDashboard() {
                                         tamoxifen
                                     </li>
                                 </ul>
+                            </CardContent>
+                        </Card>
+                    </TabsContent>
+                    <TabsContent value="share-data" className="space-y-4">
+                        <Card>
+                            <CardHeader>
+                                <CardTitle>Share you data</CardTitle>
+                            </CardHeader>
+                            <CardContent className="flex flex-col justify-center items-center">
+                                <h3 className="text-xl">
+                                    Share Data for relatives
+                                </h3>
+                                <Link href="/patient/24039/family">
+                                    <Image
+                                        src="/hospital.jpeg"
+                                        alt="hospital share link"
+                                        width="300"
+                                        height="300"
+                                    />
+                                </Link>
+                                <span className="mb-10">Code: 564738</span>
+                                <h3 className="text-xl">
+                                    Share Data for Hospitals/Doctors
+                                </h3>
+                                <Link href="/patient/24039/doctor">
+                                    <Image
+                                        src="/patient.jpeg"
+                                        alt="patient share link"
+                                        width="300"
+                                        height="300"
+                                    />
+                                </Link>
+                                <span>Code: 102938</span>
                             </CardContent>
                         </Card>
                     </TabsContent>
