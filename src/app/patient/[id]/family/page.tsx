@@ -9,5 +9,5 @@ export default async function PatientSummaryServer({ params }: PageProps) {
         return redirect("/");
     }
 
-    return <PatientSummary doctorView />;
+    return <PatientSummary doctorView={false} />;
 }
