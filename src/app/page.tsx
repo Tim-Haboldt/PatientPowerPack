@@ -84,22 +84,24 @@ export default function PatientLandingPage() {
                                     </CardContent>
                                 </Card>
                             </Link>
-                            <Card>
-                                <CardHeader>
-                                    <CardTitle className="flex items-center">
-                                        <Key className="mr-2 h-6 w-6 text-blue-500" />
-                                        Empowerment through access to medical
-                                        data
-                                    </CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <p>
-                                        Access your entire medical history in
-                                        one secure location, anytime you need
-                                        it.
-                                    </p>
-                                </CardContent>
-                            </Card>
+                            <Link href="/patient/24039/family">
+                                <Card>
+                                    <CardHeader>
+                                        <CardTitle className="flex items-center">
+                                            <Key className="mr-2 h-6 w-6 text-blue-500" />
+                                            Empowerment through access to
+                                            medical data
+                                        </CardTitle>
+                                    </CardHeader>
+                                    <CardContent>
+                                        <p>
+                                            Access your entire medical history
+                                            in one secure location, anytime you
+                                            need it.
+                                        </p>
+                                    </CardContent>
+                                </Card>
+                            </Link>
                         </div>
                     </section>
 
