@@ -50,35 +50,40 @@ export default function PatientLandingPage() {
                             </Link>
                         </div>
                         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                            <Card>
-                                <CardHeader>
-                                    <CardTitle className="flex items-center">
-                                        <Book className="mr-2 h-6 w-6 text-blue-500" />
-                                        Empowerment through education
-                                    </CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <p>
-                                        Understand your disease pathway in
-                                        patient-friendly language.
-                                    </p>
-                                </CardContent>
-                            </Card>
-                            <Card>
-                                <CardHeader>
-                                    <CardTitle className="flex items-center">
-                                        <Volume2 className="mr-2 h-6 w-6 text-blue-500" />
-                                        Empowerment through communication
-                                    </CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <p>
-                                        Quickly share the medical information
-                                        you wish to to be shared with healthcare
-                                        providers for better, faster care.
-                                    </p>
-                                </CardContent>
-                            </Card>
+                            <Link href="/dashboard">
+                                <Card>
+                                    <CardHeader>
+                                        <CardTitle className="flex items-center">
+                                            <Book className="mr-2 h-6 w-6 text-blue-500" />
+                                            Empowerment through education
+                                        </CardTitle>
+                                    </CardHeader>
+                                    <CardContent>
+                                        <p>
+                                            Understand your disease pathway in
+                                            patient-friendly language.
+                                        </p>
+                                    </CardContent>
+                                </Card>
+                            </Link>
+                            <Link href="http://34.208.222.127">
+                                <Card>
+                                    <CardHeader>
+                                        <CardTitle className="flex items-center">
+                                            <Volume2 className="mr-2 h-6 w-6 text-blue-500" />
+                                            Empowerment through communication
+                                        </CardTitle>
+                                    </CardHeader>
+                                    <CardContent>
+                                        <p>
+                                            Quickly share the medical
+                                            information you wish to to be shared
+                                            with healthcare providers for
+                                            better, faster care.
+                                        </p>
+                                    </CardContent>
+                                </Card>
+                            </Link>
                             <Card>
                                 <CardHeader>
                                     <CardTitle className="flex items-center">
