@@ -275,9 +275,6 @@ function PatientInformationShowCaseDoctor() {
                         <p>
                             <strong>Date of Birth:</strong> 15/09/1979
                         </p>
-                        <p>
-                            <strong>Patient ID:</strong> AK197909
-                        </p>
                     </div>
                 </CardContent>
             </Card>

@@ -1,111 +1,287 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import {
     Card,
+    CardContent,
+    CardDescription,
     CardHeader,
     CardTitle,
-    CardDescription,
-    CardContent,
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { AlertCircle } from "lucide-react";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
+import {
+    CalendarDays,
+    FileText,
+    Activity,
+    Pill,
+    ChevronRight,
+} from "lucide-react";
+import Link from "next/link";
 
-export default function MedicalRecordsIndex() {
+export default function PatientDashboard() {
+    const [activeTab, setActiveTab] = useState("overview");
+
     return (
-        <div className="container mx-auto p-4">
-            <h1 className="text-3xl font-bold mb-6">Medical Records System</h1>
+        <div className="flex h-screen bg-gray-100">
+            {/* Sidebar */}
+            <div className="w-64 bg-white shadow-md">
+                <div className="p-4">
+                    <h2 className="text-xl font-bold mb-4">Patient Records</h2>
+                    <nav>
+                        <Button
+                            variant="ghost"
+                            className="w-full justify-start mb-2"
+                        >
+                            <FileText className="mr-2 h-4 w-4" /> Overview
+                        </Button>
+                        <Button
+                            variant="ghost"
+                            className="w-full justify-start mb-2"
+                        >
+                            <Activity className="mr-2 h-4 w-4" /> Diagnostics
+                        </Button>
+                        <Button
+                            variant="ghost"
+                            className="w-full justify-start mb-2"
+                        >
+                            <Pill className="mr-2 h-4 w-4" /> Treatment
+                        </Button>
+                        <Button
+                            variant="ghost"
+                            className="w-full justify-start"
+                        >
+                            <CalendarDays className="mr-2 h-4 w-4" /> Timeline
+                        </Button>
+                    </nav>
+                </div>
+            </div>
 
-            <Tabs defaultValue="input">
-                <TabsList className="mb-4">
-                    <TabsTrigger value="input">Input Records</TabsTrigger>
-                    <TabsTrigger value="view">View Records</TabsTrigger>
-                </TabsList>
+            {/* Main content */}
+            <div className="flex-1 p-8 overflow-auto">
+                <header className="mb-8 flex items-center justify-between">
+                    <div className="flex items-center">
+                        <Avatar className="h-20 w-20 mr-4">
+                            <AvatarImage
+                                src="/placeholder.svg?height=80&width=80"
+                                alt="Anna Kumari"
+                            />
+                            <AvatarFallback>AK</AvatarFallback>
+                        </Avatar>
+                        <div>
+                            <h1 className="text-3xl font-bold">Anna Kumari</h1>
+                            <p className="text-gray-500">
+                                45 years old | Female
+                            </p>
+                        </div>
+                    </div>
+                    <Link href="http://34.208.222.127">
+                        <Button>Personal Chat</Button>
+                    </Link>
+                </header>
 
-                <TabsContent value="input">
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Add New Medical Record</CardTitle>
-                            <CardDescription>
-                                Enter patient information or personal medical
-                                data
-                            </CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                            <form className="space-y-4">
-                                <div>
-                                    <label
-                                        htmlFor="name"
-                                        className="block text-sm font-medium text-gray-700"
-                                    >
-                                        Patient Name
-                                    </label>
-                                    <Input
-                                        type="text"
-                                        id="name"
-                                        name="name"
-                                        required
-                                        className="mt-1"
-                                    />
-                                </div>
-                                <div>
-                                    <label
-                                        htmlFor="record"
-                                        className="block text-sm font-medium text-gray-700"
-                                    >
-                                        Medical Information
-                                    </label>
-                                    <Textarea
-                                        id="record"
-                                        name="record"
-                                        required
-                                        className="mt-1"
-                                        rows={4}
-                                    />
-                                </div>
-                                <div>
-                                    <label
-                                        htmlFor="type"
-                                        className="block text-sm font-medium text-gray-700"
-                                    >
-                                        Record Type
-                                    </label>
-                                    <select
-                                        id="type"
-                                        name="type"
-                                        className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
-                                    >
-                                        <option value="hospital">
-                                            Hospital Record
-                                        </option>
-                                        <option value="patient">
-                                            Patient Input
-                                        </option>
-                                    </select>
-                                </div>
-                                <Button type="submit">Add Record</Button>
-                            </form>
-                        </CardContent>
-                    </Card>
-                </TabsContent>
+                <Tabs
+                    value={activeTab}
+                    onValueChange={setActiveTab}
+                    className="space-y-4"
+                >
+                    <TabsList>
+                        <TabsTrigger value="overview">Overview</TabsTrigger>
+                        <TabsTrigger value="diagnostics">
+                            Diagnostics
+                        </TabsTrigger>
+                        <TabsTrigger value="treatment">Treatment</TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="overview" className="space-y-4">
+                        <Card>
+                            <CardHeader>
+                                <CardTitle>Main Diagnoses</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <ul className="list-disc pl-5 space-y-2">
+                                    <li>
+                                        Stage I early breast cancer, cT1c N0 M0
+                                    </li>
+                                    <li>
+                                        Luminal B type, ductal invasive
+                                        carcinoma
+                                    </li>
+                                    <li>ER 90%, PR 60%, HER2neu negative</li>
+                                    <li>G3, Ki67 20%</li>
+                                </ul>
+                            </CardContent>
+                        </Card>
+                        <Card>
+                            <CardHeader>
+                                <CardTitle>Other Relevant Diagnoses</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <ul className="list-disc pl-5 space-y-2">
+                                    <li>Osteoporosis</li>
+                                    <li>Low Vitamin D levels</li>
+                                </ul>
+                            </CardContent>
+                        </Card>
+                        <Card>
+                            <CardHeader>
+                                <CardTitle>Patient History</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <p>
+                                    The patient presented for an infrared camera
+                                    breast cancer screening in May 2024. The
+                                    infrared imaging highlighted a small,
+                                    suspicious area that wasn't palpable.
+                                    Further diagnostic tests confirmed the small
+                                    area as a stage I breast cancer. Staging
+                                    diagnostics did not display any metastases.
+                                </p>
+                            </CardContent>
+                        </Card>
+                    </TabsContent>
+                    <TabsContent value="diagnostics" className="space-y-4">
+                        <Card>
+                            <CardHeader>
+                                <CardTitle>Diagnostic Results</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <ul className="space-y-4">
+                                    <li>
+                                        <strong>
+                                            Infrared camera (02.05.24):
+                                        </strong>{" "}
+                                        Abnormal region of the right breast
+                                    </li>
+                                    <li>
+                                        <strong>Sonography (04.06.24):</strong>{" "}
+                                        Right side BI-RADs IV (17mm), left side
+                                        BI-RADS II
+                                    </li>
+                                    <li>
+                                        <strong>Mammography (04.06.24):</strong>{" "}
+                                        Right side BI-RADs IV (17mm), left side
+                                        BI-RADS II
+                                    </li>
+                                    <li>
+                                        <strong>Histology (04.06.24):</strong>{" "}
+                                        Ductal invasive carcinoma, G3
+                                    </li>
+                                    <li>
+                                        <strong>Immunohistochemistry:</strong>{" "}
+                                        ER 90%, PR 60%, HER2neu negative, Ki67
+                                        20%
+                                    </li>
+                                </ul>
+                            </CardContent>
+                        </Card>
+                        <Card>
+                            <CardHeader>
+                                <CardTitle>Staging Diagnostics</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <ul className="space-y-4">
+                                    <li>
+                                        <strong>
+                                            Sonography of the liver (26.06.24):
+                                        </strong>{" "}
+                                        Not suspicious
+                                    </li>
+                                    <li>
+                                        <strong>
+                                            X-ray of the chest (30.06.24):
+                                        </strong>{" "}
+                                        Not suspicious
+                                    </li>
+                                </ul>
+                            </CardContent>
+                        </Card>
+                    </TabsContent>
+                    <TabsContent value="treatment" className="space-y-4">
+                        <Card>
+                            <CardHeader>
+                                <CardTitle>
+                                    Tumor Board Recommendation (14.07.24)
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <ul className="list-disc pl-5 space-y-2">
+                                    <li>
+                                        Neoadjuvant chemotherapy with 4 cycles
+                                        of Epirubicin and Cylophosphamide
+                                        followed by 12 cycles of weekly
+                                        Paclitaxel
+                                    </li>
+                                    <li>
+                                        Breast-conserving surgery of the breast
+                                        and axilla
+                                    </li>
+                                    <li>Radiotherapy</li>
+                                    <li>
+                                        Adjuvant endocrine treatment with
+                                        tamoxifen
+                                    </li>
+                                </ul>
+                            </CardContent>
+                        </Card>
+                    </TabsContent>
+                </Tabs>
 
-                <TabsContent value="view">
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Medical Records</CardTitle>
-                            <CardDescription>
-                                View all stored medical records
-                            </CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                            <div></div>
-                        </CardContent>
-                    </Card>
-                </TabsContent>
-            </Tabs>
+                <Card className="mt-8">
+                    <CardHeader>
+                        <CardTitle>Timeline</CardTitle>
+                        <CardDescription>
+                            Key events in patient's treatment
+                        </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <ScrollArea className="h-[200px]">
+                            <ul className="space-y-4">
+                                <li className="flex items-center">
+                                    <CalendarDays className="mr-2 h-4 w-4" />
+                                    <span className="font-semibold mr-2">
+                                        02.05.2024:
+                                    </span>
+                                    <span>
+                                        Infrared camera breast cancer screening
+                                    </span>
+                                </li>
+                                <li className="flex items-center">
+                                    <CalendarDays className="mr-2 h-4 w-4" />
+                                    <span className="font-semibold mr-2">
+                                        04.06.2024:
+                                    </span>
+                                    <span>
+                                        Sonography, Mammography, and Histology
+                                    </span>
+                                </li>
+                                <li className="flex items-center">
+                                    <CalendarDays className="mr-2 h-4 w-4" />
+                                    <span className="font-semibold mr-2">
+                                        26.06.2024:
+                                    </span>
+                                    <span>Liver Sonography</span>
+                                </li>
+                                <li className="flex items-center">
+                                    <CalendarDays className="mr-2 h-4 w-4" />
+                                    <span className="font-semibold mr-2">
+                                        30.06.2024:
+                                    </span>
+                                    <span>Chest X-ray</span>
+                                </li>
+                                <li className="flex items-center">
+                                    <CalendarDays className="mr-2 h-4 w-4" />
+                                    <span className="font-semibold mr-2">
+                                        14.07.2024:
+                                    </span>
+                                    <span>Tumor Board Recommendation</span>
+                                </li>
+                            </ul>
+                        </ScrollArea>
+                    </CardContent>
+                </Card>
+            </div>
         </div>
     );
 }

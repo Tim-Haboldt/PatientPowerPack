@@ -1,8 +1,15 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
+    const pathname = usePathname();
+
+    console.log(pathname);
+
     return (
         <nav className="bg-background">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -17,15 +24,19 @@ export default function Navbar() {
                             />
                         </Link>
                     </div>
-                    <div className="flex items-center space-x-4">
-                        <Link href="https://apphackathon100-sandbox.mxapps.io/index.html?profile=Responsive">
-                            <Button variant="ghost">Log in</Button>
-                        </Link>
+                    {pathname !== "/dashboard" ? (
+                        <div className="flex items-center space-x-4">
+                            <Link href="/signin">
+                                <Button variant="ghost">Log in</Button>
+                            </Link>
 
-                        <Link href="https://apphackathon100-sandbox.mxapps.io/index.html?profile=Responsive">
-                            <Button>Sign up</Button>
-                        </Link>
-                    </div>
+                            <Link href="/signin">
+                                <Button>Sign up</Button>
+                            </Link>
+                        </div>
+                    ) : (
+                        <div />
+                    )}
                 </div>
             </div>
         </nav>
