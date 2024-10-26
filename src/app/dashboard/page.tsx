@@ -202,7 +202,7 @@ export default function PatientDashboard() {
                             </CardHeader>
                             <CardContent className="flex flex-col justify-center items-center">
                                 <h3 className="text-xl">
-                                    Share Data for relatives
+                                    Share Data for Relatives
                                 </h3>
                                 <Link href="/patient/24039/family">
                                     <Image
